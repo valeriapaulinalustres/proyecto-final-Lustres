@@ -1,0 +1,220 @@
+/*Carrito
+
+ESTE ARCHIVO PEGARLO COMO CARRITO.SCSS Y MODIFICAR COLORES ROSA Y CELESTE CON VARIABLES $ROSA Y $CELESTE
+
+@import "../base/colores";
+*/
+
+.body-carrito {
+    background-color: pink;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.carrito {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.sesiones-ofrecidas-carrito {
+    background-color: lightblue;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.carrito__container {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: pink;
+    
+}
+
+;
+
+.carrito__encabezado {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: pink;
+
+}
+
+;
+
+.carrito__titulo {
+    color: white;
+    width: 90%;
+    
+
+}
+
+.carrito__cruz {
+    background-color: pink;
+    width: 10%;
+}
+
+;
+
+.carrito__cerrar {
+    background-color: pink;
+    color: lightblue;
+}
+
+.carrito__contenido {
+    display: flex;
+    flex-direction: row;
+
+}
+
+;
+
+.carrito__select {
+    width: 20px;
+}
+
+.carrito__sesiones {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.products {
+    background-color: lightblue;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-js {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.carrito__sesion {
+    font-size: 14px;
+    text-align: center;
+}
+
+
+
+.carrito__texto {
+    color: white;
+    padding: 3px;
+}
+
+.carrito__info {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+
+}
+
+
+.carrito__cupon {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: lightblue;
+}
+
+;
+
+.carrito__total {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: lightblue;
+}
+
+;
+/*
+//Mobile celular
+*/
+@media only screen and (max-width:480px) {
+    .carrito {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: pink;
+
+    }
+
+    ;
+
+    .carrito__container {
+        background-color: lightblue;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+    }
+
+    .carrito__img {
+        display: none;
+    }
+
+    ;
+
+    .carrito__cupon {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: pink;
+    }
+
+}
+/*
+//Mobile Tablet
+*/
+@media only screen and (min-width: 481px) and (max-width:1020px) {
+    .carrito {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: pink;
+
+    }
+
+    ;
+
+    
+
+    .carrito__img {
+        display: none;
+    }
+
+    ;
+
+
+}
