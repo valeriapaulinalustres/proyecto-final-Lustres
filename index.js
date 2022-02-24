@@ -1,4 +1,27 @@
 //if ((localStorage.getItem("CART") !== null)) {CART = JSON.parse(localStorage.getItem("CART"))}
+//variables de colores
+
+let rosa = "#E0A098";
+let rosaOscuro = "#cf938c";
+let celeste = "#98CBCB";
+let celesteOscuro = "#84adad";
+let amarilloClaro = "#fff4ad";
+let amarilloOscuro = "#fde757";
+
+
+//Sweet alert de bienvenida
+Swal.fire({
+    title: '¡Bienvenido al carrito de compras!',
+    imageUrl: "./src/assets/image/recien-nacido-canasta.jpg",
+    imageWidth: 500,
+    imageAlt: 'Bebé en canasto',
+    background: celeste,
+    confirmButtonText: "Gracias",
+    confirmButtonColor: rosa,
+    color: "#ffffff",
+
+});
+
 
 //muestra listado de sesiones en el carrito
 const showProductCarts = () => {
@@ -18,33 +41,83 @@ const showProductCarts = () => {
     });
     divCart.innerHTML = htmlListProducts;
 
+
     //para borrar items del carrito
+    let cantidadPorItem = "";
     let botones = document.getElementsByClassName("deleteItem");
     for (const boton of botones) {
         boton.onclick = (event) => {
-            const id = parseInt(event.target.id);
+            const id = +event.target.id;
             let cartItems = document.getElementById(`cartItems-${id}`);
 
             //busco id del producto para capturar su índice
             const capturarIndiceDelObjetoABorrar = CART.findIndex(
                 (product) => product.id === id
             );
-            const siBorrar = prompt(
-                "¿Seguro desea eliminar del carrito? Responda: si/no "
-            );
-            if (siBorrar === "si") {
-                //borrar producto
-                CART.splice(capturarIndiceDelObjetoABorrar, 1);
-                //borrar nodo del DOM
-                cartItems.remove();
-                alert("Producto borrado");
-            } else {
-                alert("gracias");
-            }
+            let resumenItem = "";
+
+            swal.fire({
+                    title: "¿Está seguro de eliminar este ítem?",
+                    text: resumenItem,
+                    icon: "warning",
+                    iconColor: rosa,
+                    showCancelButton: true,
+                    confirmButtonText: "Sí, eliminarlo",
+                    cancelButtonText: "No, cancelar",
+                    reverseButtons: true,
+                    confirmButtonColor: rosa,
+                    cancelButtonColor: celeste,
+                })
+                .then((result) => {
+                    if (result.isConfirmed) {
+                        swal.fire({
+                            title: "Ítem eliminado",
+                            confirmButtonColor: rosa,
+                            color: celeste,
+                        });
+
+
+                        if (capturarIndiceDelObjetoABorrar === -1) {
+                            return swal.fire({
+                                title: "No se encontró el id de este producto en nuestras bases de datos ",
+                                text: resumenItem,
+                                icon: "warning",
+                            });
+                        } else {
+                            if (CART[capturarIndiceDelObjetoABorrar].quantity === 1) {
+                                CART.splice(capturarIndiceDelObjetoABorrar, 1);
+                                //borra nodo del DOM al mostrar solo los que quedan
+                                showProductCarts();
+                                //actualiza total:
+                                calculateTotalCart();
+
+                            } else {
+                                //para disminuir la cantidad en 1
+                                CART[capturarIndiceDelObjetoABorrar].quantity =
+                                    CART[capturarIndiceDelObjetoABorrar].quantity - 1;
+                                //para calcular restar el precio unitario borrado, del precio total
+                                CART[capturarIndiceDelObjetoABorrar].total =
+                                    CART[capturarIndiceDelObjetoABorrar].total - CART[capturarIndiceDelObjetoABorrar].unit_price;
+                                showProductCarts();
+                                calculateTotalCart();
+                            }
+                        }
+
+                    } else if (result.dismiss === Swal.DismissReason.cancel) {
+                        swal.fire({
+                            title: "Operación cancelada",
+                            confirmButtonColor: rosa,
+                            color: celeste,
+                        });
+                    }
+                });
         };
-    }
+    };
     registerClickEvent();
-};
+}
+
+
+
 
 //muestra botones para seleccionar filtrado
 const showProducts = (category = "all") => {
@@ -94,22 +167,36 @@ const addCart = (event) => {
         //
     }
     showProductCarts();
-    CalculateTotalCart();
+    calculateTotalCart();
 
 };
 
 //suma el total de la compra
-const CalculateTotalCart = () => {
-    let suma = 0;
+let suma = "";
+const calculateTotalCart = () => {
+    suma = 0;
     CART.forEach((p) => (suma += p.total));
     const elementTotal = document.getElementById("totalCart");
     elementTotal.innerHTML = suma;
     //con if tradicional
     //if (suma >= 20000) {alert("Su carrito supera los $20.000")};
     //con operador &&
-    suma >= 20000 && alert("Su carrito supera los $20.000")
-};
-CalculateTotalCart();
+    suma >= 20000 && //alert("Su carrito supera los $20.000")
+        Toastify({
+            text: "Su carrito supera los $20.000",
+            duration: 7000,
+            newWindow: true,
+            close: true,
+            gravity: "top",
+            position: "center",
+            stopOnFocus: true,
+            style: {
+                background: "linear-gradient(to right, #ff24ed, #ff2f52)",
+            },
+        }).showToast();
+}
+
+calculateTotalCart();
 showProducts();
 
 // CUPÓN de descuento
@@ -118,12 +205,57 @@ const btnDiscount = document.getElementById("btnDiscount");
 
 btnDiscount.onclick = () => {
     let cuponIngresado = parseInt(document.getElementById("cuponIngresado").value);
-    alert("usted ingresó" + cuponIngresado)
+
+    //Toastify
+    Toastify({
+        text: "Usted ingresó: " + cuponIngresado,
+        duration: 3000,
+        newWindow: true,
+        gravity: "top",
+        position: "center",
+        stopOnFocus: true,
+        style: {
+            background: amarilloClaro,
+            color: rosa,
+        },
+    }).showToast();
+
+
     if (cuponIngresado === discount) {
-        alert("Cupón válido, obtendrá un descuento del 20% sobre el total de su compra.")
-        //aquí falta el cálculo
+
+        function descuento(numero) {
+            return numero * 80 / 100
+
+        }
+
+        let montoConDescuento = descuento(parseInt(suma))
+        console.log("hola" + montoConDescuento)
+
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Cupón válido, obtendrá un descuento del 20% sobre el total de su compra.',
+            text: 'Total: $' + suma + '.' + 'Monto final a pagar $' + montoConDescuento,
+            showConfirmButton: false,
+            timer: 5000,
+            iconColor: rosa,
+            color: celesteOscuro,
+
+        })
+
+
     } else {
-        alert("Cupón ingresado inválido. Por favor, inténtelo nuevamente.");
+        Swal.fire({
+            title: 'Cupón ingresado inválido. Por favor, inténtelo nuevamente.',
+            color: celeste,
+            confirmButtonColor: rosa,
+            showClass: {
+                popup: 'animate__animated animate__fadeInDown'
+            },
+            hideClass: {
+                popup: 'animate__animated animate__fadeOutUp'
+            }
+        })
     }
 };
 
@@ -145,16 +277,49 @@ botonVaciarTodo.addEventListener("click", borrarNodoCartItems);
 
 function borrarNodoCartItems() {
     let productsOnCart = document.getElementById("productsOnCart");
-    const siVaciar = prompt("¿Seguro desea vaciar el carrito? Responda: si/no ");
 
-    if (siVaciar === "si") {
-        CART.splice(0, CART.length);
-        productsOnCart.innerHTML = "<p>Carrito Vacío</p>";
-    } else {
-        alert("gracias");
-    }
+    //Sweet alert para confirmar vaciado:
+    Swal.fire({
+        title: '¿Está seguro de vaciar el carrito?',
+        text: "Perderá los ítems seleccionados",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Si, vaciar el carrito',
+        cancelButtonText: 'Cancelar',
+        reverseButtons: true,
+        confirmButtonColor: rosa,
+        cancelButtonColor: celeste,
+        iconColor: rosa,
+
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
+                title: 'Se ha vaciado su carrito',
+                confirmButtonColor: rosa,
+                color: celesteOscuro,
+            })
+            //vaciar array CART:
+            CART.splice(0, CART.length);
+            //Borrar DOM y agregar <p></p>
+            productsOnCart.innerHTML = "<p>Carrito Vacío</p>";
+            //vaciar localStorage
+            localStorage.clear()
+            //total en cero:
+            calculateTotalCart()
+        } else if (
+            result.dismiss === Swal.DismissReason.cancel
+        ) {
+            Swal.fire({
+                title: 'Operación cancelada',
+                confirmButtonColor: rosa,
+                color: celesteOscuro,
+            })
+        }
+    })
 }
-//localStorage.clear()
+
+
+
 let askPay = "";
 
 //botón Pagar
@@ -173,13 +338,48 @@ btnPay.onclick = () => {
         } = obj
         resumen += "Nombre: " + name + ", " + "cantidad: " + quantity + "\n";
     }
+
+    //Sweet alert para listar sesiones y confirmar compra:
+    Swal.fire({
+        title: 'Total: $' + suma + '.' + '¿Desea pagar?',
+        text: resumen,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Si',
+        cancelButtonText: 'No',
+        reverseButtons: true,
+        cancelButtonColor: celeste,
+        confirmButtonColor: rosa,
+        iconColor: rosa,
+    }).then((result) => {
+        if (result.isConfirmed) {
+            swal.fire({
+                title: 'Se procederá al pago de su compra',
+                confirmButtonColor: rosa,
+                color: celesteOscuro,
+            })
+        } else if (
+            result.dismiss === Swal.DismissReason.cancel
+        ) {
+            swal.fire({
+                title: 'Operación cancelada',
+                text: 'Muchas gracias',
+                confirmButtonColor: rosa,
+                color: celesteOscuro,
+            })
+        }
+    })
+
+
+    /*
     alert("Listado de sesiones en su carrito:" + "\n" + resumen);
     askPay = prompt("¿Desea pagar? si/no")
+*/
 
     // if else tradicional:
     //if (askPay === "si") {alert("se procederá al pago, muchas gracias por su compra")
     //    } else {alert("muchas gracias")}
 
     //operador ternario:
-    askPay === "si" ? alert("se procederá al pago, muchas gracias por su compra") : alert("muchas gracias")
+    //askPay === "si" ? alert("se procederá al pago, muchas gracias por su compra") : alert("muchas gracias")
 }

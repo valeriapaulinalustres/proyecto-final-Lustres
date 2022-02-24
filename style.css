@@ -6,7 +6,7 @@ ESTE ARCHIVO PEGARLO COMO CARRITO.SCSS Y MODIFICAR COLORES ROSA Y CELESTE CON VA
 */
 
 .body-carrito {
-    background-color: pink;
+    background-color: #ffc0cb;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -22,7 +22,7 @@ ESTE ARCHIVO PEGARLO COMO CARRITO.SCSS Y MODIFICAR COLORES ROSA Y CELESTE CON VA
 }
 
 .sesiones-ofrecidas-carrito {
-    background-color: lightblue;
+    background-color: #add8e6;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

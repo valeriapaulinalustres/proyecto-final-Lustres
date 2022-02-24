@@ -12,4 +12,4 @@ const PRODUCTS = [
     {id: 8, name: "Bautismo", price: 5000, img: "./src/assets/image/recien-nacido-bautismo.jpg", quantity: 10},
     {id: 9, name: "Comunion", price: 5000, img: "./src/assets/image/comunion-nene-primer-plano.jpg", quantity: 10},
     {id: 10, name: "Escolares", price: 7000, img: "./src/assets/image/foto-escuela.jpg", quantity: 10},
-]
+];
