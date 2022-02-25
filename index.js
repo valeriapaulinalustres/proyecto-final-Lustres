@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded',() =>{
     fetchData()
 })
-
+//trae datos de las sesiones de fotografía desde el data.json
 const fetchData = async () => {
     try {
         const res = await fetch ('data.json')
@@ -14,7 +14,7 @@ const fetchData = async () => {
 }
 let CART = [];
 let PRODUCTS = [];
-
+//función que pasa la data obtenida del data.json a la variable PRODUCTS para ejecutar las acciones realizadas en clases anteriores y mostrarlas
 function dataAProducts (data) { return PRODUCTS = data
     
 }
