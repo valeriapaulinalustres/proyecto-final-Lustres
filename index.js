@@ -1,5 +1,11 @@
+let CART = [];
 document.addEventListener('DOMContentLoaded',() =>{
     fetchData()
+    if (localStorage.getItem("CART")) {
+        CART = JSON.parse(localStorage.getItem("CART"))
+        showProductCarts()
+        
+    }
 })
 //trae datos de las sesiones de fotografía desde el data.json
 const fetchData = async () => {
@@ -12,7 +18,7 @@ const fetchData = async () => {
         console.log(error)
     }
 }
-let CART = [];
+
 let PRODUCTS = [];
 //función que pasa la data obtenida del data.json a la variable PRODUCTS para ejecutar las acciones realizadas en clases anteriores y mostrarlas
 function dataAProducts (data) { return PRODUCTS = data
