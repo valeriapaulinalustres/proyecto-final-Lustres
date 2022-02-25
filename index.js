@@ -1,4 +1,6 @@
-//if ((localStorage.getItem("CART") !== null)) {CART = JSON.parse(localStorage.getItem("CART"))}
+//para que al recargar la página cargue los productos guardados en el local storage
+//cargarCarritoDeLocalStorage()
+
 //variables de colores
 
 let rosa = "#E0A098";
@@ -40,8 +42,9 @@ const showProductCarts = () => {
         `;
     });
     divCart.innerHTML = htmlListProducts;
-
-
+    
+     
+   
     //para borrar items del carrito
     let cantidadPorItem = "";
     let botones = document.getElementsByClassName("deleteItem");
@@ -90,6 +93,10 @@ const showProductCarts = () => {
                                 showProductCarts();
                                 //actualiza total:
                                 calculateTotalCart();
+                                //borrar de local storage
+                                localStorage.removeItem(CART[capturarIndiceDelObjetoABorrar])
+                                //actualiza local storage
+                                updateCache()
 
                             } else {
                                 //para disminuir la cantidad en 1
@@ -100,6 +107,7 @@ const showProductCarts = () => {
                                     CART[capturarIndiceDelObjetoABorrar].total - CART[capturarIndiceDelObjetoABorrar].unit_price;
                                 showProductCarts();
                                 calculateTotalCart();
+                                updateCache()
                             }
                         }
 
@@ -115,7 +123,6 @@ const showProductCarts = () => {
     };
     registerClickEvent();
 }
-
 
 
 
@@ -158,7 +165,12 @@ const addCart = (event) => {
     const productId = parseInt(event.target.id.split("-")[1]);
     const product = PRODUCTS.find((p) => p.id == productId);
     const productInCart = CART.find((p) => p.id == productId);
-    if (productInCart) productInCart.add();
+    if (productInCart) {
+        productInCart.add();
+        //para que sume una unidad y el precio al carro en el local storage
+        updateCache()
+    
+    }
     else {
         const productCart = new ProductCart(product);
         CART.push(productCart);
@@ -383,3 +395,4 @@ btnPay.onclick = () => {
     //operador ternario:
     //askPay === "si" ? alert("se procederá al pago, muchas gracias por su compra") : alert("muchas gracias")
 }
+

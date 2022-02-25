@@ -1,5 +1,4 @@
-
-const CART = []  
+let CART = []
 //Declaro array de objetos a la venta
 const PRODUCTS = [
     {id: 1, name: "Dulce Espera", price: 5000, img: "./src/assets/image/embarazada-blanco.jpg", quantity: 10},
