@@ -1,5 +1,23 @@
-//para que al recargar la página cargue los productos guardados en el local storage
-//cargarCarritoDeLocalStorage()
+document.addEventListener('DOMContentLoaded',() =>{
+    fetchData()
+})
+
+const fetchData = async () => {
+    try {
+        const res = await fetch ('data.json')
+        const data = await res.json()
+        console.log(data)
+        dataAProducts(data)
+    } catch (error) {
+        console.log(error)
+    }
+}
+let CART = [];
+let PRODUCTS = [];
+
+function dataAProducts (data) { return PRODUCTS = data
+    
+}
 
 //variables de colores
 
