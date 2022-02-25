@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded',() =>{
     if (localStorage.getItem("CART")) {
         CART = JSON.parse(localStorage.getItem("CART"))
         showProductCarts()
+        calculateTotalCart()
         
     }
 })
