@@ -18,16 +18,27 @@ ESTE ARCHIVO PEGARLO COMO CARRITO.SCSS Y MODIFICAR COLORES ROSA Y CELESTE CON VA
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin: 4%;
+    border-radius: 21px;
+background: #ffc0cb;
+box-shadow:  27px 27px 53px #cf9ca4,
+             -27px -27px 53px #ffe4f2;
+    
 
 }
 
 .sesiones-ofrecidas-carrito {
     background-color: #add8e6;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    margin:3%;
+    padding: 2%;
+background: #ffc0cb;
+box-shadow:  27px 27px 53px #cf9ca4,
+             -27px -27px 53px #ffe4f2;
 }
 
 
@@ -41,7 +52,7 @@ ESTE ARCHIVO PEGARLO COMO CARRITO.SCSS Y MODIFICAR COLORES ROSA Y CELESTE CON VA
     
 }
 
-;
+
 
 .carrito__encabezado {
     display: flex;
@@ -52,21 +63,27 @@ ESTE ARCHIVO PEGARLO COMO CARRITO.SCSS Y MODIFICAR COLORES ROSA Y CELESTE CON VA
 
 }
 
-;
+
 
 .carrito__titulo {
     color: white;
     width: 90%;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
     
 
 }
 
 .carrito__cruz {
-    background-color: pink;
+    
     width: 10%;
+    align-self: flex-end;
+    margin-top: 10px;
+    position: fixed;
 }
 
-;
+
 
 .carrito__cerrar {
     background-color: pink;
@@ -79,7 +96,14 @@ ESTE ARCHIVO PEGARLO COMO CARRITO.SCSS Y MODIFICAR COLORES ROSA Y CELESTE CON VA
 
 }
 
-;
+
+.carrito-botones{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 1%;
+}
 
 .carrito__select {
     width: 20px;
@@ -102,6 +126,7 @@ ESTE ARCHIVO PEGARLO COMO CARRITO.SCSS Y MODIFICAR COLORES ROSA Y CELESTE CON VA
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    padding: 2%;
 }
 
 .container-js {
@@ -122,6 +147,7 @@ ESTE ARCHIVO PEGARLO COMO CARRITO.SCSS Y MODIFICAR COLORES ROSA Y CELESTE CON VA
 .carrito__texto {
     color: white;
     padding: 3px;
+    font-size: 20px;
 }
 
 .carrito__info {
@@ -131,10 +157,14 @@ ESTE ARCHIVO PEGARLO COMO CARRITO.SCSS Y MODIFICAR COLORES ROSA Y CELESTE CON VA
     justify-content: center;
     align-items: center;
     text-align: center;
+    background-color: #add8e6;
+    padding: 2%;
     
 
 }
-
+.carrito__input{
+    width: 80px;
+}
 
 .carrito__cupon {
     display: flex;
@@ -142,10 +172,12 @@ ESTE ARCHIVO PEGARLO COMO CARRITO.SCSS Y MODIFICAR COLORES ROSA Y CELESTE CON VA
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    background-color: lightblue;
+    background-color: pink;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
-;
+
 
 .carrito__total {
     display: flex;
@@ -155,7 +187,7 @@ ESTE ARCHIVO PEGARLO COMO CARRITO.SCSS Y MODIFICAR COLORES ROSA Y CELESTE CON VA
     background-color: lightblue;
 }
 
-;
+
 /*
 //Mobile celular
 */
@@ -169,21 +201,19 @@ ESTE ARCHIVO PEGARLO COMO CARRITO.SCSS Y MODIFICAR COLORES ROSA Y CELESTE CON VA
 
     }
 
-    ;
+    
 
     .carrito__container {
         background-color: lightblue;
         display: flex;
         flex-direction: column;
         justify-content: center;
+        padding: 2%;
         
     }
 
-    .carrito__img {
-        display: none;
-    }
-
-    ;
+   
+    
 
     .carrito__cupon {
         flex-direction: column;
@@ -206,15 +236,9 @@ ESTE ARCHIVO PEGARLO COMO CARRITO.SCSS Y MODIFICAR COLORES ROSA Y CELESTE CON VA
 
     }
 
-    ;
-
     
-
-    .carrito__img {
-        display: none;
-    }
-
-    ;
+    
+    
 
 
 }

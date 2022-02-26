@@ -56,7 +56,7 @@ const showProductCarts = () => {
     let htmlListProducts = "";
     CART.forEach((product) => {
         htmlListProducts += `
-            <div id="cartItems-${product.id}" class="carrito-info" style="border: 1px solid #98CBCB">
+            <div id="cartItems-${product.id}" class="carrito-info" style="border: 1px solid #ffffff">
                 <img src="${product.img}" width="100"></img><br>
                 <b>${product.name}</b><br>
                 <i>Cantidad: ${product.quantity}</i>

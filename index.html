@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrito de compras de sesiones fotoráficas | Valeria Paulina Photography</title>
+    <title>Carrito de compras de sesiones fotográficas | Valeria Paulina Photography</title>
     <meta name="description"
         content="Desde el carrito podés comprar las sesiones fotográficas ofrecidas. Obtené importantes descuentos. Sesiones de fotografía en Buenos Aires.">
     <meta name="keywords"
@@ -46,9 +46,16 @@
 </head>
 
 <body class="body-carrito">
-    <h3 class="carrito__titulo">Listado de sesiones ofrecidas</h3>
+    <span class="carrito__cruz">
+        <a href="../views/shop.html"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                fill="#ffffff" class="bi bi-x-square-fill" viewBox="0 0 16 16">
+                <path
+                    d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.354 4.646L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708z" />
+            </svg></a>
+    </span>
     <div class="sesiones-ofrecidas-carrito">
-        <div class="carrito__contenedor-botones">
+        <h3 class="carrito__titulo">Listado de sesiones ofrecidas</h3>
+        <div class="carrito-botones">
             <button class="contactos" id="btnShowProductAll">Ver todas</button>
             <button class="contactos" id="btnShowProductCheap">Precio inferior a $2000</button>
             <button class="contactos" id="btnShowProductExpensive">Precio superior a $6000</button>
@@ -63,13 +70,7 @@
             <div class="carrito__encabezado">
                 <h3 class="carrito__titulo">Carrito</h3>
                 <button class="contactos" id="vaciarTodo">Vaciar carrito</button>
-                <span class="carrito__cruz">
-                    <a href="../views/shop.html"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
-                            fill="#ffffff" class="bi bi-x-square-fill" viewBox="0 0 16 16">
-                            <path
-                                d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.354 4.646L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708z" />
-                        </svg></a>
-                </span>
+                
             </div>
             <div class="carrito__info" id="productsOnCart">
                 <!--
@@ -92,7 +93,7 @@
 
             <div class="carrito__cupon">
                 <label class="carrito__texto" for="">Cupón 20% OFF</label>
-                <input type="text" value="Ingrese código" id="cuponIngresado">
+                <input type="text" class="carrito__input" value="" placeholder="código" id="cuponIngresado">
                 <button class="contactos" id="btnDiscount">Enviar</button>
             </div>
             <div class="carrito__total">
