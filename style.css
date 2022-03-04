@@ -119,8 +119,11 @@ box-shadow:  27px 27px 53px #cf9ca4,
 
 }
 
+.carrito-info{
+    background-color: #add8e6;
+}
+
 .products {
-    background-color: lightblue;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -134,6 +137,7 @@ box-shadow:  27px 27px 53px #cf9ca4,
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    background-color: #add8e6;
 
 }
 
@@ -157,7 +161,6 @@ box-shadow:  27px 27px 53px #cf9ca4,
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: #add8e6;
     padding: 2%;
     
 
