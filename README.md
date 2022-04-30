@@ -26,6 +26,7 @@ I´m Valeria Paulina Lustres. This is the ecommerce of my photography website. I
 
 <h3 align="left">Here you can visit my app:</h3>
 
+https://valeriapaulinalustres.github.io/proyecto-final-Lustres/
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
