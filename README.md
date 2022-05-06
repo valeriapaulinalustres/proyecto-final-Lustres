@@ -33,7 +33,7 @@ https://valeriapaulinalustres.github.io/proyecto-final-Lustres/
 <p>valeriapaulinalustres@yahoo.com.ar</p>
 <a href="https://instagram.com/valeria_paulina_photography" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="valeria_paulina_photography" height="30" width="40" /></a>
 </p>
-<a href="https://linkedin.com/in/https://www.linkedin.com/in/valeria-paulina-lustres-55002622b/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="https://www.linkedin.com/in/valeria-paulina-lustres-55002622b/" height="30" width="40" /></a>
+<a href="https://linkedin.com/in/https://www.linkedin.com/in/valeria-paulina-lustres/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="https://www.linkedin.com/in/valeria-paulina-lustres-55002622b/" height="30" width="40" /></a>
 </p>
 
 <h3 align="left">My skills:</h3>
